@@ -1,0 +1,27 @@
+.createItem{
+  margin: 20px auto;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.createItem input{
+  width: 100%;
+  height: 32px;
+  padding: 0 15px;
+  background: #DBE2EF;
+  outline: none;
+
+  border: 1px solid rgba(177, 177, 177, 0.4);
+  border-radius:  5px  0px  0px 5px ;
+}
+.createItem button{
+  width: 45px;
+  height: 34px;
+  /* secondary */
+  border: none;
+  background: #3F72AF;
+  color: #DBE2EF;
+  font-size: 25px;
+  border-radius: 0px 5px 5px 0px;
+}
