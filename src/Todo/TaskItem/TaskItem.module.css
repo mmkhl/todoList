@@ -18,7 +18,6 @@
   padding: 5px;
   box-sizing: border-box;
   display: flex;
-  justify-content: start;
   align-items: center;
   width: 80%;
   height: inherit;
@@ -33,4 +32,28 @@
 }
 .delete{
   transform: rotate(45deg);
+}
+
+
+.item button, .aprove button{
+  cursor: pointer;
+  transition: .1s all linear ;
+  padding: 4px;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background-image: url(./delete-pngrepo-com.png);
+  background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 60%;
+}
+.aprove span{
+  transition: .1s all linear ;
+  text-decoration: line-through;
+}
+.aprove button{
+  background-color: #7c91b8;
 }

@@ -1,23 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from './TaskItem.module.css'
 
 export default function TaskItem({task, deleteItem, id}){
   const [status, setStatus] = useState(false)
 
   function changeStatus(){
-    setStatus(!status)
-    
-  }
-  useEffect(()=>{
-    console.log(id);
-  },[id])
+    setStatus(!status)  }
+
 
 
   return <div className={!status ? styles.item : styles.aprove}>
     <input type='checkbox' value={status} onChange={changeStatus}/>
     <div className={styles.titleItem}>
-      <span>{task}{status.toString()}</span>
+      <span>{task}</span>
     </div>
-    <button onClick={()=>deleteItem(id)}>Clear</button>
+    <button onClick={()=>deleteItem(id)}></button>
   </div>
 }
