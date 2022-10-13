@@ -2,14 +2,16 @@ import styles from './InputTask.module.css'
 import React, {useState} from 'react'
 
 
-const  InputTask = (props) => {
-  const [value, setValue] = useState('')
+const  InputTask = ({ addTodo }) => {
+  const [value, setValue] = useState('')  
+  const addTaskItem = () => {
+    addTodo(value);
+    setValue('');
+  }
 
-  console.log(props);
-  
   return <div className={styles.createItem}>
-    <input value={value} onChange={(e)=> setValue(e.target.value)}/>
-    <button onClick={() => props.addTodo(value)}>+</button>
+    <input placeholder='Add todo' value={value} onChange={(e)=> setValue(e.target.value)}/>
+    <button onClick={addTaskItem}>+</button>
   </div>
 }
 

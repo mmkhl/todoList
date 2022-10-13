@@ -1,9 +1,12 @@
 import './App.css';
-import React, {useState} from 'react'
+import React from 'react'
 import Todo from './Todo/Todo'
 
 const App = () => {
-  return <Todo />;
+  return <div className='App'>
+    <Todo />
+  </div>
+
 };
 
 export default App;
