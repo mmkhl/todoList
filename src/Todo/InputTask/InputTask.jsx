@@ -11,7 +11,7 @@ const  InputTask = ({ addTodo }) => {
 
   return <div className={styles.createItem}>
     <input placeholder='Add todo' value={value} onChange={(e)=> setValue(e.target.value)}/>
-    <button onClick={addTaskItem}>+</button>
+    <button onClick={addTaskItem} onKeyUp={addTaskItem}>+</button>
   </div>
 }
 
