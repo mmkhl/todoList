@@ -1,46 +1,26 @@
-import styles from './Todo.module.css'
+import styles from './Todo.module.css';
+import {useSelector} from 'react-redux'
+// import {addItem, addTodo} from '../store/todoSlice'
 import InputTask from './InputTask/InputTask'
 import TaskItem from './TaskItem/TaskItem'
-import React, { useState, useEffect } from 'react';
-
-const getId = () => {
-  return `${Math.random() * 100}${Date.now()}`;
-};
 
 export default function Todo(){
-  const [todos, setTodos] = useState([]);
-  
-  useEffect(() => {
-    console.log(localStorage.getItem('myStorage'));
-
-    setTodos(JSON.parse(localStorage.getItem('myStorage')) ?? []);
-  }, [])
-  
-  const setValTodo = (value) => {
-    const updatedValue = [...todos,  {id: getId(), task: value}]
-    
-    localStorage.setItem('myStorage', JSON.stringify(updatedValue));
-    
-    setTodos(updatedValue)
-      
-    console.log(localStorage.getItem('myStorage'))
-  }
-    
-  function deleteTodo(id){
-    const updatedValue = todos.filter((todo)=>todo.id !== id );
-    setTodos(updatedValue)
-    localStorage.setItem('myStorage', JSON.stringify(updatedValue));
-      
-  }
-
-  
+  // const [todos, setTodos] = useState([]);
+  const todos = useSelector(state => state.todos.todos)
+  todos.length ? console.log(
+    todos.map(todo=>todo.status)): console.log(null);
 
 
   return <div className={styles.todoBlock}>
     <h1>ToDo APP</h1>
-    <InputTask addTodo={setValTodo}/>
+    <InputTask />
     <hr/>
-    {todos.map((todo) => <TaskItem deleteItem={deleteTodo} key={todo.id} task={todo.task} id={todo.id} status={todo.status}/>)}
+    {todos.map((todo) => 
+    <TaskItem 
+    key={todo.id} 
+    {...todo} 
+    status={todo.status} />
+    )}
   </div>
 
 }
